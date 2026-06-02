@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h1>📚 Student Management System</h1>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showStudents()">Students</a></li>
+                <li><a href="#" onclick="showCourses()">Courses</a></li>
+                <li><a href="#" onclick="showClasses()">Classes</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <!-- Students Section -->
+            <section id="students-section" class="section">
+                <h2>Students Management</h2>
+                <button class="btn btn-primary" onclick="toggleAddStudentForm()">+ Add Student</button>
+                
+                <form id="addStudentForm" class="form hidden">
+                    <h3>Add New Student</h3>
+                    <input type="text" id="rollNumber" placeholder="Roll Number" required>
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="tel" id="phone" placeholder="Phone Number">
+                    <input type="date" id="dob" placeholder="Date of Birth">
+                    <select id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="city" placeholder="City">
+                    <input type="text" id="address" placeholder="Address">
+                    <button type="button" class="btn btn-success" onclick="addStudent()">Save Student</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleAddStudentForm()">Cancel</button>
+                </form>
+
+                <table id="studentsTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsList">
+                        <tr><td colspan="7" class="text-center">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses-section" class="section hidden">
+                <h2>Courses Management</h2>
+                <button class="btn btn-primary" onclick="toggleAddCourseForm()">+ Add Course</button>
+                
+                <form id="addCourseForm" class="form hidden">
+                    <h3>Add New Course</h3>
+                    <input type="text" id="courseCode" placeholder="Course Code" required>
+                    <input type="text" id="courseName" placeholder="Course Name" required>
+                    <input type="number" id="credits" placeholder="Credits" value="3">
+                    <textarea id="description" placeholder="Description"></textarea>
+                    <button type="button" class="btn btn-success" onclick="addCourse()">Save Course</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleAddCourseForm()">Cancel</button>
+                </form>
+
+                <table id="coursesTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Credits</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="coursesList">
+                        <tr><td colspan="4" class="text-center">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Classes Section -->
+            <section id="classes-section" class="section hidden">
+                <h2>Classes Management</h2>
+                <button class="btn btn-primary" onclick="toggleAddClassForm()">+ Add Class</button>
+                
+                <form id="addClassForm" class="form hidden">
+                    <h3>Add New Class</h3>
+                    <input type="text" id="className" placeholder="Class Name" required>
+                    <input type="text" id="section" placeholder="Section">
+                    <input type="number" id="capacity" placeholder="Capacity" value="30">
+                    <button type="button" class="btn btn-success" onclick="addClass()">Save Class</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleAddClassForm()">Cancel</button>
+                </form>
+
+                <table id="classesTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Section</th>
+                            <th>Capacity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="classesList">
+                        <tr><td colspan="4" class="text-center">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
